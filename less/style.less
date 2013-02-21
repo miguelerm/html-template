@@ -2,6 +2,14 @@
 @import 'bootstrap/bootstrap.less';
 @import 'bootstrap/responsive.less';
 
+@fondo-1: #4b1682; // Morado usando en el fondo de los titulos y en la parte de abajo del encabezado.
+@fondo-2: #98b1cf; // Celeste usado como fondo del encabezado de las tablas.
+@fondo-3: #3a4f7a; // Azul utilizado en la parte superior del encabezado.
+@gris: #363636;
+@blancoLetras: #fff;
+@headerBorderRadix: 15px;
+
+// Tablas
 table {
     ul.options {
         margin:0;
@@ -17,20 +25,25 @@ table {
     .table(); 
     .table-bordered(); 
     .table-striped();
-    > thead {
+    > thead , > tfoot {
+        background-color: @fondo-2;
         > tr {
             > th {
+                color: @blancoLetras;
+                border-color: @fondo-2;
                 text-align:center;
             }
         }
     }
 }
 
+// Formularios
 form > fieldset > legend
 {
     .hide()
 }
 
+// Paginacion
 .pagination {
 
     > ul {
@@ -42,7 +55,7 @@ form > fieldset > legend
             .hide-text();
             > a {
                 height: 20px;
-                background-color: @linkColor;
+                background-color: @fondo-2;
                 background-image: url("@{iconWhiteSpritePath}");
             }
         }
@@ -68,7 +81,94 @@ form > fieldset > legend
     > form,
     > form > fieldset {
         display: inline;
+        label > span {
+            margin: 5px;
+            float: right;
+        }
+        select {
+            float: left;
+            width: 70px;
+            margin: 0;
+        }
+    }
+    
+    > p {
+        margin: 5px;
+        float: right;
+        display: inline;
     }
 
 }
 
+// Menu
+#menu > li {
+    ul, ol {
+        .hide();
+    }
+}
+
+#menu-user ul {
+    .hide();
+}
+
+// Encabezados.
+
+// Encabezado de pagina.
+body > header {
+    background-color: @fondo-1;
+    color: @blancoLetras;
+    overflow: hidden;
+    width: 90%;
+    margin-left: 5%;
+    .border-bottom-radius(@headerBorderRadix);
+    #gradient > .vertical(@fondo-3, @fondo-1);
+
+    > hgroup {
+        
+        background-color: @fondo-2;
+        margin-top: 25px;
+        margin-bottom: @headerBorderRadix;
+        padding-bottom: 25px;
+        border-bottom: 3px solid @blancoLetras;
+        
+        > h1, > h2 {
+            font-weight: normal;
+            font-size: 110%;
+            margin-top: -10px;
+            padding: 0 10px;
+            border: 2px solid @blancoLetras;
+            display: inline-block;
+        }
+        > h1 {
+            margin-left: 25px;
+            background-color: @gris;
+        }
+        > h2 {
+            margin-left: -6px;
+            background-color: @fondo-1;
+        }
+    }
+}
+
+// Encabezado de formulario.
+article > header {
+    
+    > hgroup {
+        
+        > h3, > h4 {
+            font-weight: normal;
+            font-size: 110%;
+        }
+        
+        > h3 {
+            padding: 0 10px;
+            background-color: @fondo-1;
+            color: @blancoLetras;
+            display: inline-block;
+       }
+       > h4 {
+           color: @linkColor; 
+       }
+    }
+    
+}
