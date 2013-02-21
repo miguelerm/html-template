@@ -1,54 +1,74 @@
-/* ==|== HelpLess - LESS Helpers Library (http://m6tt.github.com/HelpLess) = */
-@import 'boilerplate/helpless.0.0.3.less';
-
-/* ==|== Import HTML5 ✰ Boilerplate LESS library =========================== */
-@import 'boilerplate/boilerplate.less';
-
 /* Bootstrap */
 @import 'bootstrap/bootstrap.less';
+@import 'bootstrap/responsive.less';
 
-/* Normalize */
-#blr.normalize(#0abbcd, #555);
+table {
+    ul.options {
+        margin:0;
+        padding: 0;
+        display:inline;
+        > li {
+            display: inline;
+        }
+    }
+}
 
-/* ==|== primary styles =====================================================
-   Author:
-  ========================================================================== */
+.table-default {
+    .table(); 
+    .table-bordered(); 
+    .table-striped();
+    > thead {
+        > tr {
+            > th {
+                text-align:center;
+            }
+        }
+    }
+}
 
+form > fieldset > legend
+{
+    .hide()
+}
 
+.pagination {
 
-/* ==|== media queries ====================================================== */
-/* Screen width <= 320px */
-@media only screen and (max-width: 320px) {
+    > ul {
+
+        > li:first-child,
+        > li:nth-child(2),
+        > li:last-child,
+        > li:nth-last-child(2) {
+            .hide-text();
+            > a {
+                height: 20px;
+                background-color: @linkColor;
+                background-image: url("@{iconWhiteSpritePath}");
+            }
+        }
+
+        > li:nth-child(2) > a {
+            background-position: -237px -65px;
+        }
+
+        > li:nth-last-child(2) > a {
+            background-position: -329px -65px;
+        }
+
+        > li:first-child > a {
+            background-position: -211px -65px;
+        }
+
+        > li:last-child > a {
+            background-position: -356px -65px;
+        }
+
+    }
+
+    > form,
+    > form > fieldset {
+        display: inline;
+    }
 
 }
 
-/* Screen width > 320px */
-@media only screen and (min-width: 321px) and (max-width: 480px) {
-
-}
-
-/* Screen width > 480px */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-
-}
-
-/* Screen width > 768px */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-
-}
-
-/* Screen width > 1024px */
-@media only screen and (min-width: 1023px) and (max-width: 1280px) {
-
-}
-
-/* Screen width > 1280px */
-@media only screen and (min-width: 1281px) {
-
-}
-
-/* ==|== endos ==============================================================
-   Please define your styles before this section.
-   ========================================================================== */
-#blr.ns-helpers();
-@media print { #blr.media-print(); }
