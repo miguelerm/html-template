@@ -1,6 +1,6 @@
 /* Bootstrap */
 @import 'bootstrap/bootstrap.less';
-@import 'bootstrap/responsive.less';
+//@import 'bootstrap/responsive.less';
 
 @fondo-1: #4b1682; // Morado usando en el fondo de los titulos y en la parte de abajo del encabezado.
 @fondo-2: #98b1cf; // Celeste usado como fondo del encabezado de las tablas.
@@ -15,9 +15,9 @@
 body > article {
     position: relative;
     z-index: 0;
-    width: 95%;
     margin-top: -50px;
     margin-left: 2.5%;
+    margin-right: 2.5%;
     padding: 10px;
     padding-top: 60px;
     background-color: @white;
@@ -226,6 +226,8 @@ body > header {
 
 // Encabezado de formulario.
 article > header {
+    
+    margin-bottom: 15px;
     
     > hgroup {
         
