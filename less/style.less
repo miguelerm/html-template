@@ -4,7 +4,7 @@
 
 @fondo-1: #4b1682; // Morado usando en el fondo de los titulos y en la parte de abajo del encabezado.
 @fondo-2: #98b1cf; // Celeste usado como fondo del encabezado de las tablas.
-@fondo-3: #3a4f7a; // Azul utilizado en la parte superior del encabezado.
+@fondo-3: #3a4f7a; // Azul utilizado en la parte superior del encabezado y en el footer
 @gris: #363636;
 @blancoLetras: #fff;
 @headerBorderRadix: 15px;
@@ -48,6 +48,28 @@ table {
                 color: @blancoLetras;
                 border-color: @fondo-2;
                 text-align:center;
+            }
+        }
+    }
+}
+
+// Opciones de paginas
+
+article > section > ul.options {
+    float: right;
+    margin-top: -35px;
+    list-style: none;
+
+    > li {
+        display: inline;
+
+        > a {
+            .btn();
+
+            &.btn-icon {
+                > span {
+                    .hide();
+                }
             }
         }
     }
@@ -232,7 +254,7 @@ article > header {
         }
         
         > h4 {
-            color: @linkColor; 
+            color: @fondo-3; 
        }
     }
     
@@ -241,4 +263,8 @@ article > header {
 body > footer 
 {
     margin-top: 30px;
+    height: 50px;
+    border-top:  4px solid @fondo-1;
+    background-color: @fondo-3;
+    color: @white;
 }
