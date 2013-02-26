@@ -1,12 +1,10 @@
 /* Bootstrap */
 @import 'bootstrap/bootstrap.less';
-//@import 'bootstrap/responsive.less';
 
 @fondo-1: #4b1682; // Morado usando en el fondo de los titulos y en la parte de abajo del encabezado.
 @fondo-2: #98b1cf; // Celeste usado como fondo del encabezado de las tablas.
 @fondo-3: #3a4f7a; // Azul utilizado en la parte superior del encabezado y en el footer
 @gris: #363636;
-@blancoLetras: #fff;
 @headerBorderRadix: 15px;
 @defaultShadow: 0 1px 3px rgba(0,0,0,.25);
 
@@ -45,7 +43,7 @@ table {
         background-color: @fondo-2;
         > tr {
             > th {
-                color: @blancoLetras;
+                color: @white;
                 border-color: @fondo-2;
                 text-align:center;
             }
@@ -146,42 +144,160 @@ body > nav {
     top: 0;
     right: 0;
     padding-right: 5%;
-    
-    a {
-        color: @white;
-    }
-    
-    > ul:nth-child(1) {
-        margin-top: 50px;
-        margin-right: 15px;
-        > li {
+    white-space: nowrap;
+    // Configuracion general
+    > ul > li {
+        display: inline;
+        list-style-type: none;
+
+        > ul {
+            float:left;
+            border: 2px solid @fondo-1;
+            width: 90%;
+            left: 4%;
+        }
+        
+        ul, ol {
+            background-color: @white;
+            //position: absolute;
+            margin: 0;
+            padding: 0 0 0 20px;
+            /*float: left;*/
+            .hide();
+        }
+
+        > a {
             padding: 10px;
+            margin: -3px;
             background-color: @fondo-1;
             border: 1px solid @white;
-            > a > i {
+            color: @white;
+
+            > i {
                 .icon();
                 .icon-white();
                 .icon-chevron-down();
             }
+
+            &:hover {
+                background-color: lighten(@fondo-1, 15%);
+                color: @white;
+            }
         }
-        
     }
-    
+    // Menu principal
+    > ul:nth-child(1) {
+        margin-top: 50px;
+        margin-right: 15px;
+
+        > li {
+            padding: 0;
+        }
+    }
+    // Menu de usuario
     > ul:nth-child(2) {
         margin-top: -75px;
+
+        > li > a {
+            background-color: transparent;
+            border: 0 none transparent;
+        }
+    }
+}
+
+.main-menu-container {
+    .hide();
+    .box-sizing(border-box);
+    position: absolute;
+    background-color: @white;
+    border: 2px solid @fondo-1;
+    width: 90%;
+    height: 300px;
+    left: 5%;
+    top: 70px;
+    z-index: 3;
+    overflow-x: auto;
+    overflow-y: hidden; 
+    > div {
+        white-space: nowrap;
+        height: 100%;
+        width: 100%;
+        > div:first-child {
+            .show();
+        }
+    }
+}
+
+.menu-container {
+    .hide();
+    .clearfix();
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    //width: 25%;
+    
+    > ul {
+        //position:  relative;
+        //height: 100%;
+        //float: left;
     }
     
+    //.hide();
+    /*
+    position: absolute;
+    left: 5%;
+    top: 0;
+    width: 90%;
+    background-color: @white;
+    border: 2px solid @fondo-1;
+    z-index: 3;
+    overflow: hidden;
+
+    > ul {
+        margin: 5px;
+        padding-right: 5px;
+        border-right: 2px solid @fondo-1;
+    }
+
+    ul {
+        display: inline-block;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     > ul > li {
-        display: inline;
-        ul, ol {
+        //padding: 5px;
+        overflow: hidden;
+        list-style-position: inside;
+        color: @fondo-1;
+        &:hover {
+            color: @white;
+        }
+
+        > a {
+            color: @fondo-1;
+            background-color: @grayLighter;
+            display:block;
+            width: 100%;
+            padding: 2px 2px 2px 6px;
+
+            &:hover {
+                color: @white;
+                background-color: @fondo-1;
+            }
+        }
+
+
+        ul {
+            position:absolute;
+            top: 0;
             .hide();
         }
     }
+    */
 
-    
 }
-
-
 
 // Encabezados.
 
@@ -190,7 +306,7 @@ body > header {
     position: relative;
     z-index: 1;
     background-color: @fondo-1;
-    color: @blancoLetras;
+    color: @white;
     overflow: hidden;
     width: 90%;
     margin-left: 5%;
@@ -203,14 +319,14 @@ body > header {
         margin-top: 25px;
         margin-bottom: @headerBorderRadix;
         padding-bottom: 25px;
-        border-bottom: 3px solid @blancoLetras;
+        border-bottom: 3px solid @white;
         
         > h1, > h2 {
             font-weight: normal;
             font-size: 110%;
             margin-top: -10px;
             padding: 0 10px;
-            border: 2px solid @blancoLetras;
+            border: 2px solid @white;
             display: inline-block;
         }
         > h1 {
@@ -243,7 +359,7 @@ article > header {
         > h3 {
             margin-top: 17px;
             background-color: @fondo-1;
-            color: @blancoLetras;
+            color: @white;
             .border-right-radius(15px);
         }
         
