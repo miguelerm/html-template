@@ -1,8 +1,8 @@
-var $elements = $('body>nav>ul li').has('ul,ol').mouseenter(function () {
+var $elements = $('body>nav>ul:first-child li').has('ul,ol').mouseenter(function () {
 
     var subMenuId = $(this).attr('data-submenu-id');
-    $('#' + subMenuId).show();
-
+    var $subMenu = $('#' + subMenuId);
+    $subMenu.show();
     var containerDiv = $('div.main-menu-container>div');
 
     var totalWidth = 1; //1px
